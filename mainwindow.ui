@@ -150,7 +150,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -181,9 +181,18 @@
     <addaction name="separator"/>
     <addaction name="aboutButton"/>
    </widget>
+   <widget class="QMenu" name="menuGithub">
+    <property name="title">
+     <string>Github</string>
+    </property>
+    <addaction name="actionQt"/>
+    <addaction name="actionRustCompiler"/>
+    <addaction name="actionDocumentation"/>
+   </widget>
    <addaction name="fileMenu"/>
    <addaction name="compileMenu"/>
    <addaction name="helpMenu"/>
+   <addaction name="menuGithub"/>
   </widget>
   <widget class="QDockWidget" name="messageBar">
    <property name="sizePolicy">
@@ -459,6 +468,21 @@ color: #96281B</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionQt">
+   <property name="text">
+    <string>Qt</string>
+   </property>
+  </action>
+  <action name="actionRustCompiler">
+   <property name="text">
+    <string>RustCompiler</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
    </property>
   </action>
  </widget>

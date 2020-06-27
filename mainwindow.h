@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QPixmap>
+#include <QDesktopServices>
 #include <thread>
 #include "filehandler.h"
 #include "highlighter.h"
@@ -39,6 +40,9 @@ private slots:
     int on_compileButton_triggered();
     void on_compileAndRunButton_triggered();
     void on_aboutButton_triggered();
+    void on_actionQt_triggered();
+    void on_actionRustCompiler_triggered();
+    void on_actionDocumentation_triggered();
 
 private:
     QString _windowTitleTemplate;
