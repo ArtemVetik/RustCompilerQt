@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>1</horstretch>
+    <verstretch>1</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>RustCompiler</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/Images/RustCompilerIcon.png</normaloff>:/images/Images/RustCompilerIcon.png</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="CodeEditor" name="codeEdit">
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"> QPlainTextEdit {
+      background: #ffe4b5;
+  }
+ QScrollBar:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 15px;
+      margin: 0px 20px 0 20px;
+  }
+  QScrollBar::handle:horizontal {
+      background: white;
+      min-width: 20px;
+  }
+  QScrollBar::add-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: right;
+      subcontrol-origin: margin;
+  }
+  QScrollBar::sub-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: left;
+      subcontrol-origin: margin;
+  } QScrollBar:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 15px;
+      margin: 0px 20px 0 20px;
+  }
+  QScrollBar::handle:horizontal {
+      background: green;
+      min-width: 20px;
+  }
+  QScrollBar::add-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: right;
+      subcontrol-origin: margin;
+  }
+  QScrollBar::sub-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: left;
+      subcontrol-origin: margin;
+  }</string>
+      </property>
+      <property name="lineWrapMode">
+       <enum>QPlainTextEdit::NoWrap</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="windowTitle">
+    <string>Панель инструментов</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="createFileButton"/>
+   <addaction name="openFileButton"/>
+   <addaction name="saveButton"/>
+   <addaction name="saveAsButton"/>
+   <addaction name="separator"/>
+   <addaction name="compileButton"/>
+   <addaction name="compileAndRunButton"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fileMenu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="createFileButton"/>
+    <addaction name="openFileButton"/>
+    <addaction name="saveButton"/>
+    <addaction name="saveAsButton"/>
+    <addaction name="separator"/>
+    <addaction name="exitButton"/>
+   </widget>
+   <widget class="QMenu" name="compileMenu">
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="title">
+     <string>Компиляция</string>
+    </property>
+    <addaction name="compileButton"/>
+    <addaction name="compileAndRunButton"/>
+   </widget>
+   <widget class="QMenu" name="helpMenu">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="aboutButton"/>
+   </widget>
+   <addaction name="fileMenu"/>
+   <addaction name="compileMenu"/>
+   <addaction name="helpMenu"/>
+  </widget>
+  <widget class="QDockWidget" name="messageBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>69</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSizeGrip {
+      width: 16px;
+      height: 16px;
+  }</string>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetClosable</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::BottomDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Панель сообщений</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="messageBarContent">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QTabWidget" name="messages">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    border-top: 2px solid #C2C7CB;
+}
+
+QTabWidget::tab-bar {
+    left: 5px; /* move to the right by 5px */
+}
+
+/* Style the tab using the tab sub-control. Note that
+    it reads QTabBar _not_ QTabWidget */
+QTabBar::tab {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    border: 2px solid #C4C4C3;
+    border-bottom-color: #C2C7CB; /* same as the pane color */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 8ex;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+
+QTabBar::tab:selected {
+    border-color: #9B9B9B;
+    border-bottom-color: #C2C7CB; /* same as pane color */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+}</string>
+         </property>
+         <property name="tabPosition">
+          <enum>QTabWidget::South</enum>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <property name="movable">
+          <bool>false</bool>
+         </property>
+         <widget class="QWidget" name="consoleOutputTab">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <attribute name="title">
+           <string>Консольный вывод</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QTextBrowser" name="consoleOutput">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Consolas</family>
+               <pointsize>14</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: #778899;
+color: #FDF5E6</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="errorMessagesOutputTab">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <attribute name="title">
+           <string>Вывод ошибок</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="QTextBrowser" name="errorMessagesOutput">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Consolas</family>
+               <pointsize>14</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: #778899;
+color: #96281B</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="createFileButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/CreateFileIcon.png</normaloff>:/images/Images/CreateFileIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string comment="CTRL+S">Создать файл</string>
+   </property>
+  </action>
+  <action name="openFileButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/OpenFileIcon.png</normaloff>:/images/Images/OpenFileIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Открыть файл</string>
+   </property>
+  </action>
+  <action name="saveButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/SaveIcon.png</normaloff>:/images/Images/SaveIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="exitButton">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="compileButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/CompileIcon.png</normaloff>:/images/Images/CompileIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Скомпилировать</string>
+   </property>
+   <property name="shortcut">
+    <string>F9</string>
+   </property>
+  </action>
+  <action name="compileAndRunButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/CompileAndRunIcon.png</normaloff>:/images/Images/CompileAndRunIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Скомпилировать и выполнить</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F9</string>
+   </property>
+  </action>
+  <action name="aboutButton">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+  <action name="saveAsButton">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/Images/SaveAsIcon.png</normaloff>:/images/Images/SaveAsIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Сохранить как...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header>codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
