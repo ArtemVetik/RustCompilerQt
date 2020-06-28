@@ -130,9 +130,7 @@ bool CodeEditor::passRightBracket(QKeyEvent *e) {
     int curCursor = this->textCursor().position();
     QString incrementSymbol;
     QString decrementSymbol;
-
-
-
+	
     switch (e->key()) {
         case Qt::Key_BraceRight:
             incrementSymbol = "}";
@@ -168,7 +166,6 @@ bool CodeEditor::passRightBracket(QKeyEvent *e) {
 bool CodeEditor::deletePairBrackets() {
     std::string plainText = this->toPlainText().toUtf8().constData();
     int curCursor = this->textCursor().position();
-
 
     switch (plainText[curCursor]) {
         case '}':
