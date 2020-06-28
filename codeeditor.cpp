@@ -188,6 +188,8 @@ bool CodeEditor::deletePairBrackets() {
                 break;
             return false;
         default:
+            qDebug() << "FALSE: ";
+            qDebug() << plainText[curCursor-1] << endl;
             return false;
     }
 

@@ -155,7 +155,6 @@ void MainWindow::viewError() {
     QMainWindow::resizeDocks(docks, dockSizes, Qt::Orientation::Vertical);
 }
 
-
 void MainWindow::on_actionQt_triggered()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/ArtemVetik/RustCompilerQt"));
@@ -168,5 +167,5 @@ void MainWindow::on_actionRustCompiler_triggered()
 
 void MainWindow::on_actionDocumentation_triggered()
 {
-    QDesktopServices::openUrl(QUrl("https://artemvetik.github.io/RustCompilerDocumentation.io/"));
+    QDesktopServices::openUrl(QUrl("https://artemvetik.github.io/RustCompiler.io"));
 }
