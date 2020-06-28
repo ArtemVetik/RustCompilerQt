@@ -63,50 +63,65 @@
   }
  QScrollBar:horizontal {
       border: 2px solid grey;
-      background: #32CC99;
-      height: 15px;
+      background: #DBD7D2;
+      height: 18px;
       margin: 0px 20px 0 20px;
   }
   QScrollBar::handle:horizontal {
+      background: #32CC99;
+      min-width: 20px;
+  }
+  QScrollBar::add-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: right;
+      subcontrol-origin: margin;
+  }
+  QScrollBar::sub-line:horizontal {
+      border: 2px solid grey;
+      background: #32CC99;
+      width: 20px;
+      subcontrol-position: left;
+      subcontrol-origin: margin;
+  } 
+ QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+     border: 2px solid grey;
+     width: 3px;
+     height: 3px;
+     background: white;
+ }
+
+ QScrollBar:vertical {
+      border: 2px solid grey;
+      background: #DBD7D2;
+      width: 18px;
+      margin: 22px 0 22px 0;
+  }
+  QScrollBar::handle:vertical {
+      background: #32CC99;
+      min-height: 20px;
+  }
+  QScrollBar::add-line:vertical {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 20px;
+      subcontrol-position: bottom;
+      subcontrol-origin: margin;
+  }
+
+  QScrollBar::sub-line:vertical {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 20px;
+      subcontrol-position: top;
+      subcontrol-origin: margin;
+  }
+  QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+      border: 2px solid grey;
+      width: 3px;
+      height: 3px;
       background: white;
-      min-width: 20px;
-  }
-  QScrollBar::add-line:horizontal {
-      border: 2px solid grey;
-      background: #32CC99;
-      width: 20px;
-      subcontrol-position: right;
-      subcontrol-origin: margin;
-  }
-  QScrollBar::sub-line:horizontal {
-      border: 2px solid grey;
-      background: #32CC99;
-      width: 20px;
-      subcontrol-position: left;
-      subcontrol-origin: margin;
-  } QScrollBar:horizontal {
-      border: 2px solid grey;
-      background: #32CC99;
-      height: 15px;
-      margin: 0px 20px 0 20px;
-  }
-  QScrollBar::handle:horizontal {
-      background: green;
-      min-width: 20px;
-  }
-  QScrollBar::add-line:horizontal {
-      border: 2px solid grey;
-      background: #32CC99;
-      width: 20px;
-      subcontrol-position: right;
-      subcontrol-origin: margin;
-  }
-  QScrollBar::sub-line:horizontal {
-      border: 2px solid grey;
-      background: #32CC99;
-      width: 20px;
-      subcontrol-position: left;
-      subcontrol-origin: margin;
   }</string>
       </property>
       <property name="lineWrapMode">
@@ -150,7 +165,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -313,7 +328,37 @@ QTabBar::tab:!selected {
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true"> QScrollBar:vertical {
+      border: 2px solid grey;
+      background: #DBD7D2;
+      width: 18px;
+      margin: 22px 0 22px 0;
+  }
+  QScrollBar::handle:vertical {
+      background: #32CC99;
+      min-height: 20px;
+  }
+  QScrollBar::add-line:vertical {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 20px;
+      subcontrol-position: bottom;
+      subcontrol-origin: margin;
+  }
+
+  QScrollBar::sub-line:vertical {
+      border: 2px solid grey;
+      background: #32CC99;
+      height: 20px;
+      subcontrol-position: top;
+      subcontrol-origin: margin;
+  }
+  QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+      border: 2px solid grey;
+      width: 3px;
+      height: 3px;
+      background: white;
+  }</string>
           </property>
           <attribute name="title">
            <string>Консольный вывод</string>
