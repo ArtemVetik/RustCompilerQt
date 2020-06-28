@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Images/CompileAndRunIcon.png</file>
+        <file>Images/CompileIcon.png</file>
+        <file>Images/OpenFileIcon.png</file>
+        <file>Images/CreateFileIcon.png</file>
+        <file>Images/RustCompilerIcon.png</file>
+        <file>Images/SaveAsIcon.png</file>
+        <file>Images/SaveIcon.png</file>
+    </qresource>
+</RCC>
