@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++14
 
 SOURCES += \
+        aboutdialog.cpp \
         codeeditor.cpp \
         filehandler.cpp \
         highlighter.cpp \
@@ -33,12 +34,14 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
+        aboutdialog.h \
         codeeditor.h \
         filehandler.h \
         highlighter.h \
         mainwindow.h
 
 FORMS += \
+        aboutdialog.ui \
         mainwindow.ui
 
 # Default rules for deployment.
