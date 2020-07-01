@@ -52,6 +52,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resources.qrc
 
+win32: RC_ICONS = $$PWD/Images/RustCompilerIcon.ico
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/CompilerCore/ -llibRustCompilerDLL.dll
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/CompilerCore/ -llibRustCompilerDLL.dll
 else:unix: LIBS += -L$$PWD/CompilerCore/ -llibRustCompilerDLL.dll
