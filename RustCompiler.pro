@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++14
 
 SOURCES += \
+        aboutdialog.cpp \
         codeeditor.cpp \
         filehandler.cpp \
         highlighter.cpp \
@@ -33,12 +34,14 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
+        aboutdialog.h \
         codeeditor.h \
         filehandler.h \
         highlighter.h \
         mainwindow.h
 
 FORMS += \
+        aboutdialog.ui \
         mainwindow.ui
 
 # Default rules for deployment.
@@ -48,6 +51,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+win32: RC_ICONS = $$PWD/Images/RustCompilerIcon.ico
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/CompilerCore/ -llibRustCompilerDLL.dll
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/CompilerCore/ -llibRustCompilerDLL.dll

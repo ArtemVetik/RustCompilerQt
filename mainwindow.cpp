@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "aboutdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), _fileSaved(false), ui(new Ui::MainWindow), _highlighter(nullptr),
                                                                                         _executableThread(nullptr) {
@@ -125,23 +126,8 @@ void MainWindow::on_compileAndRunButton_triggered() {
 
 void MainWindow::on_aboutButton_triggered()
 {
-    QMessageBox aboutBox;
-
-    aboutBox.setWindowTitle("О программе");
-    aboutBox.setText("Программа разработана студентами 2-го курса БГТУ \"Военмех\" имени Д.Ф. Устинова\nРазработчики: Труфанов Глеб и Ветик Артём И584");
-    aboutBox.setStandardButtons(QMessageBox::Ok);
-    aboutBox.setWindowIcon(QIcon("../RustCompiler/Images/RustCompilerIcon.png"));
-
-    QPixmap aboutIcon("../RustCompiler/Images/AboutIcon.png");
-    QPixmap aboutIconScaled = aboutIcon.scaled(150, 150);
-
-    aboutBox.setIconPixmap(aboutIconScaled);
-    aboutBox.iconPixmap().scaled(50, 50);
-    aboutBox.setDefaultButton(QMessageBox::Ok);
-    aboutBox.setModal(false);
-
-    aboutBox.show();
-    aboutBox.exec();
+    AboutDialog dialog;
+    dialog.exec();
 }
 
 void MainWindow::viewError() {
